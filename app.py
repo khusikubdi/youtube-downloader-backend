@@ -23,8 +23,10 @@ def download_video():
     try:
         # Set download options
         ydl_opts = {
-            'outtmpl': os.path.join(DOWNLOAD_FOLDER, '%(title)s.%(ext)s'),
-            'format': 'bestvideo+bestaudio/best'
+                'outtmpl': os.path.join(DOWNLOAD_FOLDER, '%(title)s.%(ext)s'),
+    'format': 'bestvideo+bestaudio/best',
+    'cookiefile': 'cookies.txt'  # Add this line to use cookies
+
         }
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
